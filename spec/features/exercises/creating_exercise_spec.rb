@@ -4,6 +4,7 @@ RSpec.describe 'creating exercise' do
   before do
     @vitor = User.create(email: "vitor@web.br", password: "123456")
     # devise method used for testing
+    # Warden in rails helper
     login_as(@vitor)
   end
 
