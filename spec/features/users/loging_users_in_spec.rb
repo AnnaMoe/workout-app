@@ -15,6 +15,7 @@ RSpec.describe "Logging users in" do
 
     # expect(page).to have_content("Signed in sucessfully.")
     expect(page).to have_content("Signed in as #{@vitor.email}")
+    expect(page).to have_link("Sign out")
     expect(page).not_to have_link("Sign in")
     expect(page).not_to have_link("Sign up")
   end
