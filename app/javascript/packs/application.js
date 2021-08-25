@@ -8,6 +8,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("bootstrap-sprockets")
+require("jquery")
+require("jquery-ujs")
 require("jquery-ui/datepicker")
 
 

@@ -17,8 +17,8 @@ RSpec.describe 'creating exercise' do
 
     fill_in "Duration", with: 70
     fill_in "Workout Details", with: "Weight Lifting"
-    fill_in "Activity date", with: "2016-07-26"
-    click_button "Create Workout"
+    fill_in "Activity date", with: 3.days.ago
+    click_button "Create Exercise"
 
     expect(page).to have_content("Exercise has been created")
     exercise = Exercise.last
@@ -33,7 +33,7 @@ RSpec.describe 'creating exercise' do
     fill_in "Duration", with: ""
     fill_in "Workout Details", with: ""
     fill_in "Activity date", with: ""
-    click_button "Create Workout"
+    click_button "Create Exercise"
 
     expect(page).to have_content("Exercise has not been created")
     expect(page).to have_content("Duration in min is not a number")    

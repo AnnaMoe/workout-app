@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
   def index
-
+    @exercises = current_user.exercises
   end
 
   def show
@@ -19,7 +19,7 @@ class ExercisesController < ApplicationController
       # can be written shorter:
       redirect_to [current_user, @exercise]
     else
-      flash.now[:alert] = "Exercise has not been created"
+      flash[:alert] = "Exercise has not been created"
       render "new"
     end
   end
