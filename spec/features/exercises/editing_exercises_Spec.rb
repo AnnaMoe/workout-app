@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'editing exercise' do
   before do
-    @ = User.create!(email: "john@example.com",
+    @owner = User.create!(email: "john@example.com",
       password: "password")
-    @owner_exercise = @owner.exercises.create!(duration_in_min: 48,
+    @owner_exer = @owner.exercises.create!(duration_in_min: 48,
                                 workout: "My body building activity",
                                 workout_date: Date.today
                               )
@@ -16,14 +16,13 @@ RSpec.describe 'editing exercise' do
 
     click_link "My Lounge"
 
-    path = "/users/#{@owner.id}/exercises/#{@owner.exercises.id}/edit"
-    link = "a[href=\'#{path}'\]"
+    link = "a[href='/users/#{@owner.id}/exercises/#{@owner_exer.id}/edit']"
     find(link).click
 
     fill_in "Duration", with: 45
     click_button "Update Exercise"
-    expect(page).to have_content("Exercise has been created")
-    expect(page).to have_content("48")
-    expect(page).not_to have_content("45")
+    expect(page).to have_content("Exercise has been updated")
+    expect(page).not_to have_content("48")
+    expect(page).to have_content("45")
   end
 end
