@@ -19,6 +19,7 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
+gem 'd3-rails', '~> 4.1.0'
 # different formats for date - send consistent format to db:
 gem 'jquery-ui-rails', '~> 5.0.5'
 # Use Redis adapter to run Action Cable in production

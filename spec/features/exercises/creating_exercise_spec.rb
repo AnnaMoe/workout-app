@@ -17,6 +17,7 @@ RSpec.describe 'creating exercise' do
 
     fill_in "Duration", with: 70
     fill_in "Workout Details", with: "Weight Lifting"
+    # should be dynamic date so that exercise default scope works
     fill_in "Activity date", with: 3.days.ago
     click_button "Create Exercise"
 
