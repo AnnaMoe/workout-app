@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   # display 10 records per page
-  self.per_page = 10
+  self.per_page = 5
 
   def full_name
     "#{first_name} #{last_name}"
