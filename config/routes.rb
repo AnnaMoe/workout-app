@@ -5,4 +5,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :exercises
   end
+  resources :dashboards, only: [:index] do
+    # search is going to return a collection of user names
+    collection do
+      post :search, to: 'dashboards#search'
+    end
+  end
+
 end
