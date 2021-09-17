@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Listing Exercise" do
   before do
     @john = User.create!(email: "john@example.com",
-      password: "password")
+      password: "password", first_name: "Vitor", last_name: "Reis")
       
     login_as(@john)
 
