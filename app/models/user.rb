@@ -40,5 +40,12 @@ class User < ApplicationRecord
     # or if current_user is this new friend
     friendships.map(&:friend).include?(new_friend) || self == new_friend
   end
+
+  def current_friendship(friend)
+    #returns array of one record
+    # only need friendship record, not array
+    # so we need .first
+    friendships.where(friend: friend).first
+  end
 end
  
