@@ -4,7 +4,7 @@ $(document).ready(function () {
 });
 
 // url in regex - make it case-insensitive
-var regex = /\/users\/\d+\/exercises$/i;
+var regex = /\/users\/\d+\/exercises$|\/friendships\/d+$/i;
 
 // if pathname(url) matches the car regex, then we will draw the chart
 if ($(location).attr('pathname').match(regex)) {
