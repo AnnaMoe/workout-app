@@ -10,6 +10,12 @@ class FriendshipsController < ApplicationController
     Friendship.create(friendship_params) unless current_user.follows_or_same?(friend)
     redirect_to root_path
   end
+
+  def show
+    #only want friend object and not user object: (.friend)
+    @friend = Friendship.find(params[:id]).friend
+    @exercises = @friend.exercises
+  end
   
   private
   
