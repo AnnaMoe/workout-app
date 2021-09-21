@@ -9,6 +9,7 @@ class User < ApplicationRecord
   # no friends model, use the user model for it (friends is alias of user)
   has_many :friends, through: :friendships, class_name: "User"
   has_one :room
+  has_many :messages
 
   validates :first_name, presence: true
   validates :last_name, presence: true
