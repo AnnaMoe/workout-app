@@ -8,9 +8,13 @@ class User < ApplicationRecord
   has_many :friendships
   # no friends model, use the user model for it (friends is alias of user)
   has_many :friends, through: :friendships, class_name: "User"
+  has_one :room
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  #callback:
+  after_create :create_chatroom
 
   # display 10 records per page
   self.per_page = 5
@@ -46,6 +50,13 @@ class User < ApplicationRecord
     # only need friendship record, not array
     # so we need .first
     friendships.where(friend: friend).first
+  end
+
+  private
+
+  def create_chatroom
+    hyphenated_username = self.full_name.split.join("-")
+    Room.create(name:hyphenated_username, user_id: self.id )
   end
 end
  
